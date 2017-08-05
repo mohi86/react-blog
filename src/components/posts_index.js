@@ -11,14 +11,14 @@ class PostsIndex extends Component {
     this.props.deletePost(id);
   }
   renderPosts() {
-    return _.map(this.props.posts, post => {
+    return _.map(this.props.posts, (post, key) => {      
       return (
-        <li className="list-group-item" key={post.id}>
-          <Link to={`/posts/${post.id}`}>
+        <li className="list-group-item" key={key}>
+          <Link to={`/posts/${key}`}>
             {post.title}
           </Link>
           <span 
-            onClick={this.onDeletePost.bind(this, post.id)}
+            onClick={this.onDeletePost.bind(this, key)}
             style={{color: 'red', cursor: 'pointer', float: 'right'}}
           >
             X
